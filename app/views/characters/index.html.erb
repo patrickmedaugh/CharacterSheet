@@ -1,0 +1,6 @@
+<% @characters.each do |char| %>
+  <p><%= link_to char.name, character_path(char) %>
+    <%= link_to "X", character_path(char), method: "delete" %>
+</p>
+<% end %>
+<a href="/characters/new">New Character</a>
