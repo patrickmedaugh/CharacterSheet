@@ -4,7 +4,13 @@ class Character::ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
+    @item = Item.new(name: params[:item][:name], description: params[:item][:description])
+    @item.character_id = params[:id]
+    if @item.save
+      redirect_to character_path(Character.find(params[:id]))
+    else
+      render :new
+    end
   end
 
   private

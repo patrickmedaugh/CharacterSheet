@@ -2,5 +2,9 @@
 <p><%= @character.gender %>
 <%= @character.race %>
 <%= @character.character_class %></p>
+<% @character.items.each do |item| %>
+  <p><%= item.name %>
+<em><%= item.description %></em></p>
+<% end %>
 <%= link_to "Add Power", character_new_power_path %>
 <%= link_to "Add Item", character_new_item_path %>
